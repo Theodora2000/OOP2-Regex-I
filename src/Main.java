@@ -4,7 +4,8 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("na");
+            private static final Pattern REGEX = Pattern.compile(".");
+            //podvucice sve izraze, jer "." u reg izrazi znaci bilo koji znak
 
             private static final String[] INPUT = {
                     "Neki kratak tekst u kojem   se rec tekst javlja vise puta. Takodje, tekst sadrzi i specijalne znake poput poput tacke i zagrada: ( . ) % $ [ , ] \\ /",
