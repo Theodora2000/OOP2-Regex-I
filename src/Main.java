@@ -11,6 +11,6 @@ public class Main {
             System.out.println("Ne sadrzi");
         }
 
-        System.out.println(tekst);
+        System.out.println(tekst.indexOf(rec));
     }
 }
