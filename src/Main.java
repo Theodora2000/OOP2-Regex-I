@@ -4,9 +4,9 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("b*");
-            //* prethodnu stvar ponovi 0 ili vise puta, tako da b odgovara, sledecem stringu
-            private static final String[] INPUT = {
+            private static final Pattern REGEX = Pattern.compile("ab*");
+            //ab prikazuje skup oji sadzri samo jednu rec
+    private static final String[] INPUT = {
                     "Neki kratak tekst u kojem   se rec tekst javlja vise puta. Takodje, tekst sadrzi i specijalne znake poput poput tacke i zagrada: ( . ) % $ [ , ] \\ /",
                     "Ana voli Milovana!",
                     "abba baba ceca caca 12345 cica aca ica aba abbba abbbbba",
