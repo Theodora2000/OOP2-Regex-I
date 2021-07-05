@@ -4,15 +4,12 @@ public class Main {
         //odnosno skup stringova koji pripadaju tom nekom jeziku
 
         String tekst = "Neki kratka tekst.";
-        String rec = "kratak";
 
-
-        if(tekst.contains(rec) || tekst.contains("kratka") || tekst.contains("kratko")){
-            System.out.println("Sadrzi");
-        }else{
-            System.out.println("Ne sadrzi");
+        String[] reci = tekst.split(" ");
+        for (String rec : reci){
+            System.out.println(rec);
         }
 
-        System.out.println(tekst.indexOf(rec));
+
     }
 }
