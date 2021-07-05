@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("ab{2,4}");
-            //iza njega mora da bude 2-4 slova b
+            private static final Pattern REGEX = Pattern.compile("a.");
+            //iza njega bilo koji znak
     private static final String[] INPUT = {
                     "Neki kratak tekst u kojem   se rec tekst javlja vise puta. Takodje, tekst sadrzi i specijalne znake poput poput tacke i zagrada: ( . ) % $ [ , ] \\ /",
                     "Ana voli Milovana!",
