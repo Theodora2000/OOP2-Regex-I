@@ -4,9 +4,8 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("(?i)ana");
-            //(?i) - ignore case, nece praviti razliku izmedju velikih i malih slova
-
+            private static final Pattern REGEX = Pattern.compile("b*");
+            //* prethodnu stvar ponovi 0 ili vise puta, tako da b odgovara, sledecem stringu
             private static final String[] INPUT = {
                     "Neki kratak tekst u kojem   se rec tekst javlja vise puta. Takodje, tekst sadrzi i specijalne znake poput poput tacke i zagrada: ( . ) % $ [ , ] \\ /",
                     "Ana voli Milovana!",
