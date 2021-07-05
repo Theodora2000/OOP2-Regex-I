@@ -4,9 +4,8 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("\\.");
-            // kada stavimo \\. onda bukvalno gleda tacku
-            //podvucice sve izraze, jer "." u reg izrazi znaci bilo koji znak
+            private static final Pattern REGEX = Pattern.compile("(?i)ana");
+            //(?i) - ignore case, nece praviti razliku izmedju velikih i malih slova
 
             private static final String[] INPUT = {
                     "Neki kratak tekst u kojem   se rec tekst javlja vise puta. Takodje, tekst sadrzi i specijalne znake poput poput tacke i zagrada: ( . ) % $ [ , ] \\ /",
