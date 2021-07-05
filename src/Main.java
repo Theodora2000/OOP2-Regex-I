@@ -4,7 +4,9 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("\\w");
+            private static final Pattern REGEX = Pattern.compile("a$");
+            //^a pocetak teksta
+            //a$ kraj stringa
 
     private static final String[] INPUT = {
                     "Neki kratak tekst u kojem   se rec tekst javlja vise puta. Takodje, tekst sadrzi i specijalne znake poput poput tacke i zagrada: ( . ) % $ [ , ] \\ /",
