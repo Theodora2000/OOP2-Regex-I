@@ -4,7 +4,8 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("\\ba");
+            private static final Pattern REGEX = Pattern.compile("a.*a");
+            //"a.*a" pocinje sa a, bilo koji znak, neograniceno puta i zavrsava sa a
             // \\b prelazak iz jednog skupa u neki drugi skup, u nasem slucaju, gde kod zapocinje rec sa a
 
 
