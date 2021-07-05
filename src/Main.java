@@ -1,17 +1,60 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
-    public static void main(String args[]){
-        //regularni izraz -  to su stringovi pomocu koijh mozemo da opisemo jezik,
-        //odnosno skup stringova koji pripadaju tom nekom jeziku
-
-        //jednom napravljen strinf ne moze vise da se menja, imutable su,
-        //jedino sta moze da se napravi je novi string na osnovu onog starog
-        String tekst = "Neki kratka tekst.";
-         // !!!!! tekst.replaceAll("a", "e"); // nece nam zameniti, nego poramo ga sacuvati u neki novi string
-        String tekst2 = tekst.replaceAll("\\.", "!");
-        //sve se zamenulo, zato sto je to regularan izraz
-        System.out.println(tekst);
-        System.out.println(tekst2);
 
 
-    }
-}
+            private static final Pattern REGEX = Pattern.compile("na");
+
+            private static final String[] INPUT = {
+                    "Neki kratak tekst u kojem   se rec tekst javlja vise puta. Takodje, tekst sadrzi i specijalne znake poput poput tacke i zagrada: ( . ) % $ [ , ] \\ /",
+                    "Ana voli Milovana!",
+                    "abba baba ceca caca 12345 cica aca ica aba abbba abbbbba",
+                    "NS 123-AB | 061/234-56-78 | +381 21 123 456 | 194 | noreply@somedomain.com | studentska@pmf.uns.ac.rs | ime.prezime@domen.rs | 123-456",
+            };
+
+            public static void main(String[] args) {
+                for (String input : INPUT) {
+                    debug(input);
+                }
+            }
+
+            private static void debug(String input) {
+                Matcher matcher = REGEX.matcher(input);
+                if (matcher.matches()) {
+                    System.out.println(input.replaceAll(".", "_"));
+                    System.out.println(input);
+                    System.out.println(input.replaceAll(".", "="));
+                } else if (matcher.find(0)) {
+                    StringBuilder builder = new StringBuilder(input.length());
+                    for (int i = 0; i < input.length(); i++) {
+                        builder.append(' ');
+                    }
+                    StringBuilder builder2 = new StringBuilder(input.length());
+                    for (int i = 0; i < input.length(); i++) {
+                        builder2.append(' ');
+                    }
+                    do {
+                        for (int i = matcher.start(); i < matcher.end(); i++) {
+                            builder.setCharAt(i, '_');
+                        }
+                        for (int j = 1; j <= matcher.groupCount(); j++) {
+                            for (int i = matcher.start(j); i < matcher.end(j); i++) {
+                                builder2.setCharAt(i, (char) (j + '0'));
+                            }
+                        }
+                    } while (matcher.find());
+                    System.out.println(builder);
+                    System.out.println(input);
+                    System.out.println(builder2);
+                } else {
+                    System.out.println();
+                    System.out.println(input);
+                    System.out.println();
+                }
+            }
+        }
+
+
+
+
