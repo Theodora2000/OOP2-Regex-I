@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("a$");
+            private static final Pattern REGEX = Pattern.compile("^.*1.*$");
             //^a pocetak teksta
             //a$ kraj stringa
 
