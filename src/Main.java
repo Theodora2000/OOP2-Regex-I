@@ -7,7 +7,8 @@ public class Main {
         //jedino sta moze da se napravi je novi string na osnovu onog starog
         String tekst = "Neki kratka tekst.";
          // !!!!! tekst.replaceAll("a", "e"); // nece nam zameniti, nego poramo ga sacuvati u neki novi string
-        String tekst2 = tekst.replaceAll("a", "e");
+        String tekst2 = tekst.replaceAll(".", "!");
+        //sve se zamenulo, zato sto je to regularan izraz
         System.out.println(tekst);
         System.out.println(tekst2);
 
