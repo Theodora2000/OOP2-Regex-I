@@ -3,13 +3,13 @@ public class Main {
         //regularni izraz -  to su stringovi pomocu koijh mozemo da opisemo jezik,
         //odnosno skup stringova koji pripadaju tom nekom jeziku
 
+        //jednom napravljen strinf ne moze vise da se menja, imutable su,
+        //jedino sta moze da se napravi je novi string na osnovu onog starog
         String tekst = "Neki kratka tekst.";
-        //stringovi mogu da se koriste kako regularni izrazi,
-        //medjutim sami regularni izrazi kao string ne
-        String[] reci = tekst.split(" ");
-        for (String rec : reci){
-            System.out.println(rec);
-        }
+         // !!!!! tekst.replaceAll("a", "e"); // nece nam zameniti, nego poramo ga sacuvati u neki novi string
+        String tekst2 = tekst.replaceAll("a", "e");
+        System.out.println(tekst);
+        System.out.println(tekst2);
 
 
     }
