@@ -4,8 +4,9 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-            private static final Pattern REGEX = Pattern.compile("\\bt.*?(.)\\b");
-           //izdvoji poslednje slovo
+            private static final Pattern REGEX = Pattern.compile("\\b(?<prvoslovo>t).*?(?<poslednjeslovo>.)\\b");
+
+    //mozemo da imenujemo grupe
 
     //greedy qua - sto vise mozes
     //relucant qua - sto manje koliko bas moras
