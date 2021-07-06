@@ -5,9 +5,7 @@ public class RegexDebugger {
 
 
         private static final Pattern REGEX = Pattern.compile(
-                "b(?=a)" //hvata b ispred kojeg mora da bude a ali ga ne prikazuje
-                //"(?<!a)b" //hvata b ispre koje nije a
-                //"b(?=a)"
+                "(.)\\1"//ono sto je naslo prvo mora biti isto sa drugim
         );
 
 
