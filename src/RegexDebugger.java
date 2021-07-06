@@ -4,10 +4,9 @@ import java.util.regex.Pattern;
 public class RegexDebugger {
 
 
-        private static final Pattern REGEX = Pattern.compile("(?:ab|ic)a");
-        //nacice gde se nalazi aba ili ica "aba|ica"
-        //neimenovana grupa koja se ne racuna "(?:ab|ic)a" ovo ?: je neimenovana grupa
-        //mozemo da imenujemo grupe
+        private static final Pattern REGEX = Pattern.compile("\\Q( . )\\E");
+        //\Q( . )\E - izrazi se shvataju bukvalno
+
 
         //greedy qua - sto vise mozes
         //relucant qua - sto manje koliko bas moras
