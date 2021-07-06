@@ -5,7 +5,9 @@ public class RegexDebugger {
 
 
         private static final Pattern REGEX = Pattern.compile(
-                "(?<=a)b" //hvata b ispred kojeg mora da bude a ali ga ne prikazuje
+                "b(?=a)" //hvata b ispred kojeg mora da bude a ali ga ne prikazuje
+                //"(?<!a)b" //hvata b ispre koje nije a
+                //"b(?=a)"
         );
 
 
