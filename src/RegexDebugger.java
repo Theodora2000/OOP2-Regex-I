@@ -4,8 +4,10 @@ import java.util.regex.Pattern;
 public class RegexDebugger {
 
 
-        private static final Pattern REGEX = Pattern.compile("(\\b[A-Z]{2}) (\\d{3}-[A-Z]{2})\\b");
-        //\Q( . )\E - izrazi se shvataju bukvalno
+        private static final Pattern REGEX = Pattern.compile(
+                "(?<=a)b" //hvata b ispred kojeg mora da bude a ali ga ne prikazuje
+        );
+
 
 
         //greedy qua - sto vise mozes
