@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 public class RegexDebugger {
 
 
-        private static final Pattern REGEX = Pattern.compile("(\\w{2}) (\\d{3}-\\w{2})");
+        private static final Pattern REGEX = Pattern.compile("(\\b[A-Z]{2}) (\\d{3}-[A-Z]{2})\\b");
         //\Q( . )\E - izrazi se shvataju bukvalno
 
 
