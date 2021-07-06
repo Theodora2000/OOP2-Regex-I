@@ -4,8 +4,9 @@ import java.util.regex.Pattern;
 public class RegexDebugger {
 
 
-        private static final Pattern REGEX = Pattern.compile("\\b(?<prvoslovo>t).*?(?<poslednjeslovo>.)\\b");
-
+        private static final Pattern REGEX = Pattern.compile("(?:ab|ic)a");
+        //nacice gde se nalazi aba ili ica "aba|ica"
+        //neimenovana grupa koja se ne racuna "(?:ab|ic)a" ovo ?: je neimenovana grupa
         //mozemo da imenujemo grupe
 
         //greedy qua - sto vise mozes
