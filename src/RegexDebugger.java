@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 public class RegexDebugger {
 
 
-        private static final Pattern REGEX = Pattern.compile("\\Q( . )\\E");
+        private static final Pattern REGEX = Pattern.compile("(\\w{2}) (\\d{3}-\\w{2})");
         //\Q( . )\E - izrazi se shvataju bukvalno
 
 
