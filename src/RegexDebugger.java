@@ -5,7 +5,7 @@ public class RegexDebugger {
 
 
         private static final Pattern REGEX = Pattern.compile(
-                "(.)\\1"//ono sto je naslo prvo mora biti isto sa drugim
+                "(?<![a-zA-Z])([A-Za-z]+)\\s\\1"//ono sto je naslo prvo mora biti isto sa drugim
         );
 
 
