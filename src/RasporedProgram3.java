@@ -15,18 +15,36 @@ public class RasporedProgram3 {
         String text = readFile();
         Raspored raspored = RasporedProgram2.readRaspored(text);
         List<Cas> casovi = raspored.getList();//izvucemo list casova
-        stampajDan(casovi, Dan.SREDA);
-    }
+        stampajDan(casovi, cas -> true, (cas1, cas2) -> cas1.getPredmet().compareTo(cas2.getPredmet()));
 
-    public static void stampajDan(List<Cas> casovi, Dan dan) {
+    }
+/*
+    public static final class KomparatorPoPredmetu implements Comparator<Cas>{
+        public int compare(Cas cas1, Cas cas2){
+            return cas1.getPredmet().compareTo(cas2.getPredmet());
+        }
+    }*/
+    //ne moramo navoditi tacan tip interfejsa jer ga java sama prepozna iz konteksta
+    //lambda izrazi nemaju imena nego ->
+    //ako imamo samo jednu naredbu ili izraz ne moramo viticaste i return
+    //ne moramo tipove parametara, java ih prepozna iz konteksta
+//odredjuje da li dati cas zadovoljava kriterijum ili ne
+public interface Kriterijum{
+    public boolean zadovoljava(Cas cas);
+}
+
+
+
+
+
+    public static void stampajDan(List<Cas> casovi, Kriterijum kriterijum, Comparator<Cas> redosled) {
+        List<Cas> pom = new ArrayList<>(casovi);
+        Collections.sort(pom, redosled);
         for (Cas cas : casovi) {
-            if(cas.getDan() == dan) {
+            if(kriterijum.zadovoljava(cas)) {
                 System.out.println(cas);
             }
         }
-    }
-    public static void stampajSredu(List<Cas> casovi) {
-       stampajDan(casovi, Dan.SREDA);
     }
 
     public static String readFile() throws IOException {
