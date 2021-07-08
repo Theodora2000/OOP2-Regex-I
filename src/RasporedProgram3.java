@@ -15,7 +15,7 @@ public class RasporedProgram3 {
         String text = readFile();
         Raspored raspored = RasporedProgram2.readRaspored(text);
         List<Cas> casovi = raspored.getList();//izvucemo list casova
-        stampajDan(casovi, cas -> true, (cas1, cas2) -> cas1.getPredmet().compareTo(cas2.getPredmet()));
+        stampajDan(casovi, cas -> true, (cas1, cas2) -> cas1.getPredmet().compareTo(cas2.getPredmet()), cas-> System.out.println(cas));
 
     }
 /*
@@ -33,16 +33,20 @@ public interface Kriterijum{
     public boolean zadovoljava(Cas cas);
 }
 
+public interface Akcija{
+    public void uradi(Cas cas);
+}
 
 
 
 
-    public static void stampajDan(List<Cas> casovi, Kriterijum kriterijum, Comparator<Cas> redosled) {
+
+    public static void stampajDan(List<Cas> casovi, Kriterijum kriterijum, Comparator<Cas> redosled, Akcija akcija) {
         List<Cas> pom = new ArrayList<>(casovi);
         Collections.sort(pom, redosled);
         for (Cas cas : casovi) {
             if(kriterijum.zadovoljava(cas)) {
-                System.out.println(cas);
+                akcija.uradi(cas);
             }
         }
     }
