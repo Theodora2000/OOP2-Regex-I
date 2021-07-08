@@ -15,15 +15,18 @@ public class RasporedProgram3 {
         String text = readFile();
         Raspored raspored = RasporedProgram2.readRaspored(text);
         List<Cas> casovi = raspored.getList();//izvucemo list casova
-        stampajUtorak(casovi);
+        stampajDan(casovi, Dan.SREDA);
     }
-    //samo raspored za utorak
-    public static void stampajUtorak(List<Cas> casovi) {
+
+    public static void stampajDan(List<Cas> casovi, Dan dan) {
         for (Cas cas : casovi) {
-            if(cas.getDan() == Dan.UTORAK) {
+            if(cas.getDan() == dan) {
                 System.out.println(cas);
             }
         }
+    }
+    public static void stampajSredu(List<Cas> casovi) {
+       stampajDan(casovi, Dan.SREDA);
     }
 
     public static String readFile() throws IOException {
