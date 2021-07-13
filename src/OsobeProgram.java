@@ -1,3 +1,4 @@
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.Arrays;
 //import java.util.ArrayList;
@@ -10,10 +11,21 @@ import java.util.Iterator;
 //import java.util.List;
 
 public class OsobeProgram {
+/*primer za navedeni stariji nacin
+    public static class MojaFunkcija implements Function<String>{
+        public Osoba apply(String string){
+            return new Osoba(String);
+        }
+    }*/
+
+    /*
+    Function<String, Osoba> f = string -> {return  new Osoba(string); };
+    * */
 
     private static final LocalDate GRANICA = LocalDate.of(1970, 1, 1);
 
     public static void main(String[] args) {
+        //MojaFunkcija f = new MojaFunkcija();
         String[] nizStringova = Osobe.random(500);//generise 500 nasumicnih osoba
         Arrays.stream(nizStringova)//tok stringovapomocu statickom metoda klase arrays
                 .map(Osoba::new)//prebacujemo stringove sa podacima o osobama u instance klase osoba, za to imamo :map
@@ -24,11 +36,19 @@ public class OsobeProgram {
                 .flatMap(o -> o.getDeca().stream())
                 .distinct()
                 .forEach(System.out::println);
+        //.forEach(x -> System.out.println(x))
+
+
         ;
 
+//.map prima funkciju, taklasa string,extenduje R, tip rezultat, jednu vrstu re zu drugu
+//Function<?, ?> f = null;//opsti oblik
+        //stari nacin bi bio da uzmemo i napravimo novu klasu koja implementira odg fnukciju,
+        //u toj klasi napraivmo metod apply koji se primenjuje na fun sta vec treba
+        //i vraca odg vrednost, implementiramo taj metod i tjt
 
 
-
+//parametri od metoda su funkcionalni interfejsi
 /*
 //		Osobe.stream(500)
         String[] nizStringova = Osobe.random(500);//generise 500 nasumicnih osoba
