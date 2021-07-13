@@ -34,7 +34,7 @@ public class OsobeProgram {
                 .sorted(Comparator.comparing(Osoba::getPlata))
                 .limit(5)
                 .flatMap(o -> o.getDeca().stream())
-                .distinct()
+                .distinct()//za distinct ne mora da bude sortiran tok podataka
                 .forEach(System.out::println);
         //.forEach(x -> System.out.println(x))
 
@@ -91,6 +91,7 @@ public class OsobeProgram {
 
 		Collections.sort(imena);
 //brisemo dupla imena iz liste
+//ovde se podrazumeva da je polazni string / tok sortiran
 		String proslo = null;
 		Iterator<String> iterator = imena.iterator();
 		while (iterator.hasNext()) {
