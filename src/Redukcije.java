@@ -1,22 +1,24 @@
 
-import java.util.OptionalInt;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Redukcije {
-
+//nacini kako da unistimo tokove
     public static void main(String[] args) {
-
+//puno objekata redukujemo  u jedan objekat
 //		System.out.println();
 //		System.out.println("forEach()");
 //		IntStream.range(0, 10)
-//			.forEach(System.out::println);
+//			.forEach(System.out::println);//ceo tok uzme unisti ga i ne vrati nista
 
 //		System.out.println();
 //		System.out.println("xxxxxMatch()");
 //		boolean b1 = IntStream.range(0, 10)
-//			.allMatch(i -> i < 5);
+//			.allMatch(i -> i < 5);//prosledimo predikat
 //		System.out.println(b1);
 //		boolean b2 = IntStream.range(0, 10)
 //			.anyMatch(i -> i < 5);
@@ -25,6 +27,7 @@ public class Redukcije {
 //			.noneMatch(i -> i < 5);
 //		System.out.println(b3);
 
+        //Opional je jedan mali tok, mozda ima elemente mozda ne
 //		System.out.println();
 //		System.out.println("findXxxxx()");
 //		Optional<String> s1 = Stream.of("Pera", "Mika", "Djoka", "Ana", "Maja")
@@ -35,30 +38,32 @@ public class Redukcije {
 //		System.out.println(s2);
 //		Optional<String> s3 = Stream.of("Pera", "Mika", "Djoka", "Ana", "Maja")
 //			.min(Comparator.comparing(String::length));
+//		//vraca nam optional od string
 //		System.out.println(s3);
 //		Optional<String> s4 = Stream.of("Pera", "Mika", "Djoka", "Ana", "Maja")
 //			.max(Comparator.comparing(String::length));
 //		System.out.println(s4);
+
+		System.out.println();
+		System.out.println("count(), sum(), average()...");
+		long br = IntStream.range(0, 10)
+			.count();
+		System.out.println(br);
+		long suma = IntStream.range(0, 10)
+			.sum();
+		System.out.println(suma);
+		OptionalDouble prosek = IntStream.range(0, 10)
+			.average();
+		System.out.println(prosek);
+		//odradi sve u jednom prolasku
+		IntSummaryStatistics stat = IntStream.range(0, 10)
+			.summaryStatistics();
+		System.out.println(stat);
 //
 //		System.out.println();
-//		System.out.println("count(), sum(), average()...");
-//		long br = IntStream.range(0, 10)
-//			.count();
-//		System.out.println(br);
-//		long suma = IntStream.range(0, 10)
-//			.sum();
-//		System.out.println(suma);
-//		OptionalDouble prosek = IntStream.range(0, 10)
-//			.average();
-//		System.out.println(prosek);
-//		IntSummaryStatistics stat = IntStream.range(0, 10)
-//			.summaryStatistics();
-//		System.out.println(stat);
-
-//		System.out.println();
 //		System.out.println("toArray() & collect()");
-//		int[] a1 = IntStream.range(0, 10)
-//			.toArray();
+//		int[] a1 = IntStream.range(0, 10)//tok  int
+//			.toArray();//tok sazeti u niz
 //		System.out.println(Arrays.toString(a1));
 //		Object[] a2 = Stream.of(LocalDate.now(), "ABC", 17)
 //			.toArray();
@@ -67,7 +72,7 @@ public class Redukcije {
 //			.toArray(n -> new String[n]);
 //		System.out.println(Arrays.toString(a3));
 //		List<Object> l1 = Stream.of(LocalDate.now(), "ABC", 17)
-//			.collect(Collectors.toList());
+//			.collect(Collectors.toList());//skupljam tok podataka u listu
 //		System.out.println(l1);
 //		List<String> l2 = Stream.of("a", "b", "c")
 //			.collect(Collectors.toList());

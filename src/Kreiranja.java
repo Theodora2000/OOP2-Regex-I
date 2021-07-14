@@ -35,15 +35,17 @@ public class Kreiranja {
 //		//jednom koriscen tok podataka ne moze vise da se koristi
 //		tokStringova.forEach(System.out::println);
 
-		System.out.println();
-		System.out.println("Redosled operacija");
-		listaStringova.stream()//objekat
+//		System.out.println();
+//		System.out.println("Redosled operacija");
+//		listaStringova.stream()//objekat
 //			.peek(s -> System.out.println("Peek: " + s))//ista kao foreach ali ne zatvara tok podataka
 //                //peek nije terminalna operacija, pozivaju se samo kad se stigne do neke termiranlne operacije
-			.map(s->s.toLowerCase())
-                .forEach(s -> System.out.println("ForEach: " + s));
-            //kad smo pozvali forezh napravio se novi tok podataka
+////			.map(s->s.toLowerCase())
+//                .forEach(s -> System.out.println("ForEach: " + s));
+//            //kad smo pozvali forezh napravio se novi tok podataka
             //izvrsava se tako da ide iz strema u map pa u foreach
+
+	//nacin na koij kreiramo tokove podataka, pomocu factory metoda
 //		System.out.println();
 //		System.out.println("Kreiranje toka navodjenjem elemenata");
 //		Stream.of("A", "B", "C", "D")
@@ -75,11 +77,11 @@ public class Kreiranja {
 //		Stream.iterate("x", s -> s + " " + s)
 //			.limit(5)
 //			.forEach(System.out::println);
-//		Stream.generate(() -> Math.random())
+//		Stream.generate(() -> 1.0)
 //			.limit(5)
 //			.map(d -> String.format("%7.5f", d))
 //			.forEach(System.out::println);
-//		// Stream.iterate(seed, hasNext, next) Java 9+
+//		 Stream.iterate(seed, hasNext, next) Java 9+
 
 //		System.out.println();
 //		System.out.println("Pretvaranje jedne vrste toka u drugu");
@@ -101,7 +103,7 @@ public class Kreiranja {
 
 //		System.out.println();
 //		System.out.println("Sadrzaj fajla kao tok linija");
-//		Path path = Paths.get("src/oop2/v05/streams/imena.txt");
+//		Path path = Paths.get("src/imena.txt");
 //		Files.lines(path)
 //			.forEach(System.out::println);
 
@@ -112,22 +114,24 @@ public class Kreiranja {
 //		Stream.concat(x, y)
 //			.forEach(System.out::println);
 
-//		System.out.println();
-//		System.out.println("Tok nastao gradjenjem");
-//		Builder<String> b = Stream.builder();
-//		b.add("Prvi");
-//		IntStream.range(0, 5)
-//			.map(i -> i + 1)
-//			.mapToObj(i -> "Broj " + i)
-//			.forEach(b);
-//		b.add("Drugi");
-//		String[] a = new String[] { "Element iz niza 1", "Drugi element iz niza", "Element iz niza br 3" };
-//		for (String s : a) {
-//			b.add(s);
-//		}
-//		b.add("Treci");
-//		b.build()
-//			.forEach(System.out::println);
+//najmocniji nacin za pravljenje tokova
+		System.out.println();
+		System.out.println("Tok nastao gradjenjem");
+		Builder<String> b = Stream.builder();//gradjenje tokova
+		b.add("Prvi");//dodajemo elemnt
+        //bilder je ujedno i konzumer, tj. ono sta se koreisti u terminalnim operazijama
+		IntStream.range(0, 5)
+			.map(i -> i + 1)
+			.mapToObj(i -> "Broj " + i)
+			.forEach(b);//terminalna op
+		b.add("Drugi");
+		String[] a = new String[] { "Element iz niza 1", "Drugi element iz niza", "Element iz niza br 3" };
+		for (String s : a) {
+			b.add(s);
+		}
+		b.add("Treci");
+		b.build()
+			.forEach(System.out::println);
 
     }
 }
